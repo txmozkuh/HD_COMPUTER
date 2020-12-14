@@ -1,6 +1,6 @@
 {
-  "name": "react-material-dashboard",
-  "author": "DeviasIO",
+  "name": "hd-computer-web",
+  "author": "Hxtruong",
   "licence": "MIT",
   "version": "1.0.0",
   "private": false,
@@ -37,6 +37,7 @@
     "history": "^5.0.0",
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
+    "node-sass": "^4.14.1",
     "nprogress": "^0.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",

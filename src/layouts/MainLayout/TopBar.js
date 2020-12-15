@@ -14,7 +14,8 @@ import IconNews from 'src/assests/icons/new_icon_tintuc.png';
 import './TopBar.scss';
 
 const useStyles = makeStyles(({
-  root: {},
+  root: {
+  },
   toolbar: {
     minHeight: 34
   },
@@ -103,7 +104,6 @@ const TopBar = ({ className, ...rest }) => {
             </Grid>
           </Grid>
         </Grid>
-
       </Toolbar>
     </AppBar>
   );

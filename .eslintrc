@@ -14,11 +14,7 @@
       "node": {
         "paths": [
           "src",
-          // "src/components",
-          // "components"
-          // "src/services",
-          // "src/views",
-          // "src/redux"
+          "components"
         ],
         "extensions": [
           ".js",

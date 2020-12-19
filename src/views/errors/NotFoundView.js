@@ -3,9 +3,12 @@ import {
   Box,
   Container,
   Typography,
-  makeStyles
+  makeStyles,
+  IconButton
 } from '@material-ui/core';
+import { ArrowLeft as BackIcon } from 'react-feather';
 import Page from 'src/components/Page';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,12 +27,16 @@ const useStyles = makeStyles((theme) => ({
 
 const NotFoundView = () => {
   const classes = useStyles();
+  const navigate = useNavigate();
 
   return (
     <Page
       className={classes.root}
       title="404"
     >
+      <IconButton color="secondary" onClick={() => navigate(-2)}>
+        <BackIcon />
+      </IconButton>
       <Box
         display="flex"
         flexDirection="column"

@@ -1,6 +1,3 @@
-import React, { useState } from 'react';
-import clsx from 'clsx';
-import PropTypes from 'prop-types';
 import {
   Box,
   Button,
@@ -9,9 +6,12 @@ import {
   CardHeader,
   Divider,
   Grid,
-  TextField,
-  makeStyles
+
+  makeStyles, TextField
 } from '@material-ui/core';
+import clsx from 'clsx';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 
 const states = [
   {
@@ -32,22 +32,22 @@ const useStyles = makeStyles(() => ({
   root: {}
 }));
 
-const ProfileDetails = ({ className, ...rest }) => {
+const ProfileDetails = ({
+  className, cvInfo, updateCvInfo, toggleEditView, ...rest
+}) => {
   const classes = useStyles();
-  const [values, setValues] = useState({
-    firstName: 'Katarina',
-    lastName: 'Smith',
-    email: 'demo@devias.io',
-    phone: '',
-    state: 'Alabama',
-    country: 'USA'
-  });
 
-  const { toggleEditView } = rest;
+  const [values, setValues] = useState(cvInfo || {});
+  const [updateValues, setUpdateValues] = useState(cvInfo ? { id: cvInfo.id } : {});
+  console.log('x560 ProfileDetails: ', rest);
 
   const handleChange = (event) => {
     setValues({
       ...values,
+      [event.target.name]: event.target.value
+    });
+    setUpdateValues({
+      ...updateValues,
       [event.target.name]: event.target.value
     });
   };
@@ -78,15 +78,15 @@ const ProfileDetails = ({ className, ...rest }) => {
               <TextField
                 fullWidth
                 helperText="Please specify the first name"
-                label="First name"
-                name="firstName"
+                label="Full Name"
+                name="fullName"
                 onChange={handleChange}
                 required
-                value={values.firstName}
+                value={values.fullName || ''}
                 variant="outlined"
               />
             </Grid>
-            <Grid
+            {/* <Grid
               item
               md={6}
               xs={12}
@@ -100,7 +100,7 @@ const ProfileDetails = ({ className, ...rest }) => {
                 value={values.lastName}
                 variant="outlined"
               />
-            </Grid>
+            </Grid> */}
             <Grid
               item
               md={6}
@@ -111,8 +111,8 @@ const ProfileDetails = ({ className, ...rest }) => {
                 label="Email Address"
                 name="email"
                 onChange={handleChange}
-                required
-                value={values.email}
+                // required
+                value={values.email || ''}
                 variant="outlined"
               />
             </Grid>
@@ -126,8 +126,8 @@ const ProfileDetails = ({ className, ...rest }) => {
                 label="Phone Number"
                 name="phone"
                 onChange={handleChange}
-                type="number"
-                value={values.phone}
+                required
+                value={values.phone || ''}
                 variant="outlined"
               />
             </Grid>
@@ -138,15 +138,30 @@ const ProfileDetails = ({ className, ...rest }) => {
             >
               <TextField
                 fullWidth
-                label="Country"
-                name="country"
+                label="Job Title"
+                name="jobTitle"
                 onChange={handleChange}
-                required
-                value={values.country}
+                // required
+                value={values.jobTitle || ''}
                 variant="outlined"
               />
             </Grid>
             <Grid
+              item
+              md={6}
+              xs={12}
+            >
+              <TextField
+                fullWidth
+                label="Objective"
+                name="objective"
+                onChange={handleChange}
+                // required
+                value={values.objective || ''}
+                variant="outlined"
+              />
+            </Grid>
+            {/* <Grid
               item
               md={6}
               xs={12}
@@ -171,7 +186,7 @@ const ProfileDetails = ({ className, ...rest }) => {
                   </option>
                 ))}
               </TextField>
-            </Grid>
+            </Grid> */}
           </Grid>
         </CardContent>
         <Divider />
@@ -183,9 +198,16 @@ const ProfileDetails = ({ className, ...rest }) => {
           <Button
             color="primary"
             variant="contained"
-            onClick={toggleEditView}
+            onClick={() => updateCvInfo(updateValues)}
           >
             Save details
+          </Button>
+          <Button
+            color="secondary"
+            variant="contained"
+            onClick={toggleEditView}
+          >
+            Cancel
           </Button>
         </Box>
       </Card>

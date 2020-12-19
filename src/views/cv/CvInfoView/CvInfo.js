@@ -1,16 +1,16 @@
 import {
+  Button,
   Container,
   Grid,
-  IconButton,
+
   makeStyles
 } from '@material-ui/core';
 import React from 'react';
 import { Edit as EditIcon } from 'react-feather';
+import FileViewer from 'src/components/FileViewer';
 import Page from 'src/components/Page';
-import PdfViewer from './PdfViewer';
 import Profile from './Profile';
 import ProfileDetails from './ProfileDetails';
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,7 +24,9 @@ const useStyles = makeStyles((theme) => ({
 const CvInfo = (props) => {
   const classes = useStyles();
 
-  const { isEdit, toggleEditView, cv } = props;
+  const {
+    isEdit, toggleEditView, cv, cvInfo, updateCvInfo
+  } = props;
 
   return (
     <Page
@@ -43,7 +45,7 @@ const CvInfo = (props) => {
               md={6}
               xs={12}
             >
-              <Profile />
+              <Profile cv={cv} cvInfo={cvInfo} />
             </Grid>
             <Grid
               item
@@ -51,7 +53,11 @@ const CvInfo = (props) => {
               md={6}
               xs={12}
             >
-              <ProfileDetails toggleEditView={toggleEditView} />
+              <ProfileDetails
+                toggleEditView={toggleEditView}
+                cvInfo={cvInfo}
+                updateCvInfo={updateCvInfo}
+              />
             </Grid>
           </Grid>
         </Container>
@@ -61,18 +67,26 @@ const CvInfo = (props) => {
             <Grid item container direction="column" justify="center" alignContent="center" alignItems="center">
               <Grid item container justify="flex-end">
                 <Grid>
-                  <IconButton
+                  {/* <IconButton
                     color="primary"
                     aria-label="Edit CV"
                     onClick={toggleEditView}
                   >
                     <EditIcon />
-                  </IconButton>
+                  </IconButton> */}
+                  <Button
+                    color="primary"
+                    aria-label="Edit CV"
+                    onClick={toggleEditView}
+                    startIcon={<EditIcon />}
+                  >
+                    View CV
+                  </Button>
                 </Grid>
               </Grid>
               {cv && (
                 <Grid>
-                  <PdfViewer url={cv.cvUrl} />
+                  <FileViewer url={cv.cvUrl} fileType={cv.type} />
                 </Grid>
               )}
             </Grid>

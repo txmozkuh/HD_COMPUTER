@@ -7,7 +7,6 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Search as SearchIcon } from 'react-feather';
-import Logo from 'src/assests/images/lap_icon.png';
 import './TopBar.scss';
 
 const useStyles = makeStyles((theme) => ({
@@ -33,7 +32,7 @@ const MainHeader = ({ className, ...rest }) => {
     >
       <Grid container direction="row" justify="space-between">
         <Grid>
-          <img alt="main-logo" src={Logo} height={65} />
+          <img alt="main-logo" src="/static/icons/lap_icon.png" height={65} />
         </Grid>
         <Grid>
           <div className={classes.search}>

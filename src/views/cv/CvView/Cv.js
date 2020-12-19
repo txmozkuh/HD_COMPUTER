@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
 import {
   Container,
   Grid,
   makeStyles
 } from '@material-ui/core';
+import React, { useEffect } from 'react';
 import Page from 'src/components/Page';
 import CvCard from './CvCard';
 
@@ -18,10 +18,11 @@ const useStyles = makeStyles((theme) => ({
 
 const Cv = (props) => {
   const classes = useStyles();
-  console.log('xxx 001 ', props);
-  useEffect(() => props.retrieveData(), []);
+  const { cvs, retrieveData } = props;
+  useEffect(() => {
+    retrieveData();
+  }, []);
 
-  const { cvs } = props;
   return (
     <Page
       className={classes.root}

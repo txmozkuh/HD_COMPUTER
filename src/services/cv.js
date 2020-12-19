@@ -11,6 +11,10 @@ class CvAPI {
     return http.get(`/cv/${id}`);
   }
 
+  getCvUrl(id) {
+    return http.get(`/cv/file?id=${id}`);
+  }
+
   uploadFile(file) {
     const formDataFile = new FormData();
     formDataFile.append('file', file);
@@ -33,7 +37,7 @@ class CvAPI {
                 { headers: { 'Content-Type': contentType } }
               )
               .then((res) => {
-                http.post('/cv', { key: fileName }).then((res) => resolve(res));
+                http.post('/cv', { key: fileName, type: mime.slice(1) }).then((res) => resolve(res));
               });
           });
         // resolve(true);

@@ -9,8 +9,7 @@ import {
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React from 'react';
-import IconSell from 'src/assests/icons/new_icon_banhang.png';
-import IconNews from 'src/assests/icons/new_icon_tintuc.png';
+
 import './TopBar.scss';
 
 const useStyles = makeStyles(({
@@ -59,7 +58,7 @@ const TopBar = ({ className, ...rest }) => {
             <Grid item>
               <Grid container space={3} direction="row" wrap="nowrap" alignItems="center">
                 <Grid>
-                  <Icon className="topBarIcon"><img height={12} src={IconSell} alt="icon-ban-hang" /></Icon>
+                  <Icon className="topBarIcon"><img height={12} src="/static/icons/new_icon_banhang.png" alt="icon-ban-hang" /></Icon>
                 </Grid>
                 <Grid>
                   <Typography className={classes.typo}>Bán hàng trực tuyến</Typography>
@@ -69,7 +68,7 @@ const TopBar = ({ className, ...rest }) => {
             <Grid item>
               <Grid container space={3} direction="row" wrap="nowrap" alignItems="center">
                 <Grid>
-                  <Icon className="topBarIcon"><img height={12} src={IconNews} alt="icon-tin-tuc" /></Icon>
+                  <Icon className="topBarIcon"><img height={12} src="/static/icons/new_icon_tintuc.png" alt="icon-tin-tuc" /></Icon>
                 </Grid>
                 <Grid>
                   <Typography className={classes.typo}>Tin nổi bật</Typography>

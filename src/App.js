@@ -1,23 +1,23 @@
-import { CssBaseline, StylesProvider, ThemeProvider } from '@material-ui/core';
-import React from 'react';
 import 'react-perfect-scrollbar/dist/css/styles.css';
+import React from 'react';
 import { useRoutes } from 'react-router-dom';
+import { CssBaseline, ThemeProvider } from '@material-ui/core';
 import GlobalStyles from 'src/components/GlobalStyles';
 import 'src/mixins/chartjs';
-import routes from 'src/routes';
 import theme from 'src/theme';
+import routes from 'src/routes';
+import { useSelector } from 'react-redux';
 
 const App = () => {
-  const routing = useRoutes(routes);
+  // const isLogged = useSelector((state) => state.user.isLogged);
+  const routing = useRoutes(routes());
 
   return (
-    <StylesProvider injectFirst>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <GlobalStyles />
-        {routing}
-      </ThemeProvider>
-    </StylesProvider>
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <CssBaseline />
+      {routing}
+    </ThemeProvider>
   );
 };
 

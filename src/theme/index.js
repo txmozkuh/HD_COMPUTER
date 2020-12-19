@@ -1,16 +1,16 @@
-import { colors, createMuiTheme } from '@material-ui/core';
+import { createMuiTheme, colors } from '@material-ui/core';
 import shadows from './shadows';
 import typography from './typography';
 
 const theme = createMuiTheme({
   palette: {
     background: {
-      // dark: '#F4F6F8',
+      dark: '#F4F6F8',
       default: colors.common.white,
       paper: colors.common.white
     },
     primary: {
-      main: '#17324f'
+      main: colors.indigo[500]
     },
     secondary: {
       main: colors.pink[500]

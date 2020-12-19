@@ -2,8 +2,9 @@ import axios from 'axios';
 
 // TODO: get url from env file
 export default axios.create({
-  baseURL: 'http://localhost:8080',
+  baseURL: '/api',
   headers: {
     'Content-type': 'application/json',
+    'Access-Control-Allow-Origin': '*'
   },
 });

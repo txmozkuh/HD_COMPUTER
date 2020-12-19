@@ -58,8 +58,11 @@ export function uploadCvSuccess() {
 // action thunk
 
 export function createCvRequest(file) {
-  return (dispatch) => CvAPI.uploadFile(file).then((res) => {
-    dispatch(createCv(res.data));
+  return (dispatch) => CvAPI.uploadFile(file).then(async (res) => {
+    const cv = res.data;
+    const cvUrl = await CvAPI.getCvUrl(cv.id).then((res) => res.data);
+
+    dispatch(createCv({ ...cv, cvUrl }));
     return dispatch(uploadCvSuccess());
   });
 }

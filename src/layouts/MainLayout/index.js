@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+
 import Footer from './Footer';
 import WrapHeader from './WrapHeader';
 
@@ -9,9 +10,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.default,
     display: 'flex',
     flexDirection: 'column',
-    height: '100%',
     overflow: 'hidden',
-    width: '100%'
+    width: '100%',
+    minHeight: '100%',
   },
   wrapper: {
     display: 'flex',
@@ -21,12 +22,12 @@ const useStyles = makeStyles((theme) => ({
   },
   contentContainer: {
     display: 'flex',
+    flexFlow: 'column nowrap',
     flex: '1 1 auto',
-    overflow: 'hidden'
+    overflow: 'auto'
   },
   content: {
     flex: '1 1 auto',
-    height: '100%',
     overflow: 'auto'
   }
 }));
@@ -42,9 +43,9 @@ const MainLayout = () => {
           <div className={classes.content}>
             <Outlet />
           </div>
+          <Footer />
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

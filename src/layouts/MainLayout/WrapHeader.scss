@@ -1,0 +1,13 @@
+.wrapHeader {
+	&__main,
+	&__nav {
+		background: white;
+		color: black;
+		width: 100%;
+		padding: 5px;
+	}
+
+	&__main {
+		border-bottom: solid 2px #222;
+	}
+}

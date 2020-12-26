@@ -14,29 +14,29 @@ import CvUploadView from './views/cv/CvUploadView';
 // TODO: make navigate to Error page 2 level. goBack(-2)
 
 const routes = (isLoggedIn) => [
-  {
-    path: 'cv',
-    element: isLoggedIn ? <DashboardLayout /> : <Navigate to="/" />,
-    children: [
-      { path: 'account', element: <AccountView /> },
-      { path: 'customers', element: <CustomerListView /> },
-      { path: '/', element: <CvView /> },
-      { path: ':id', element: <CvInfoView /> },
-      // { path: 'products', element: <ProductListView /> },
-      // { path: 'settings', element: <SettingsView /> },
-      { path: 'upload', element: <CvUploadView /> },
+  // {
+  //   path: 'cv',
+  //   element: <DashboardLayout />,
+  //   children: [
+  //     { path: 'account', element: <AccountView /> },
+  //     { path: 'customers', element: <CustomerListView /> },
+  //     { path: '/', element: <CvView /> },
+  //     { path: ':id', element: <CvInfoView /> },
+  //     // { path: 'products', element: <ProductListView /> },
+  //     // { path: 'settings', element: <SettingsView /> },
+  //     { path: 'upload', element: <CvUploadView /> },
 
-      { path: '*', element: <Navigate to="/404" /> }
-    ]
-  },
+  //     { path: '*', element: <Navigate to="/404" /> }
+  //   ]
+  // },
   {
     path: '/',
-    element: !isLoggedIn ? <MainLayout /> : <Navigate to="/cv" />,
+    element: <MainLayout />,
     children: [
       { path: 'login', element: <LoginView /> },
       { path: 'register', element: <RegisterView /> },
       { path: '404', element: <NotFoundView /> },
-      { path: '/', element: <Navigate to="/login" /> },
+      { path: '/', element: <AccountView /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]
   }

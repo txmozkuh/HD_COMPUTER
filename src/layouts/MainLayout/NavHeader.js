@@ -5,10 +5,12 @@ import {
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React from 'react';
-import './TopBar.scss';
 
 const useStyles = makeStyles(({
   root: {
+    display: 'flex',
+    flexFlow: 'row wrap',
+    justifyContent: 'center'
   },
 
 }));

@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import Footer from './Footer';
@@ -34,11 +34,18 @@ const useStyles = makeStyles((theme) => ({
 
 const MainLayout = () => {
   const classes = useStyles();
+  const [headerHeight, setHeaderHeight] = useState(100);
+
+  useEffect(() => {
+    const height = document.getElementById('wrapHeader').clientHeight;
+    console.log('xxx260 height top: ', height);
+    setHeaderHeight(height);
+  }, []);
 
   return (
     <div className={classes.root}>
-      <WrapHeader />
-      <div className={classes.wrapper}>
+      <WrapHeader id="wrapHeader" />
+      <div className={classes.wrapper} style={{ marginTop: headerHeight }}>
         <div className={classes.contentContainer}>
           <div className={classes.content}>
             <Outlet />

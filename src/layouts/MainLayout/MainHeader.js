@@ -10,7 +10,7 @@ import React from 'react';
 import { Search as SearchIcon, ShoppingCart as CardIcon } from 'react-feather';
 import './MainHeader.scss';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {},
   iconButton: {
     padding: 10,

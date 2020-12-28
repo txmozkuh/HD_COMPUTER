@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
@@ -6,6 +7,10 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import Product from 'src/components/Product/Product';
+import ProductList from 'src/components/ProductList/ProductList';
+import './HotProductView.scss';
+import clsx from 'clsx';
 
 function TabPanel(props) {
   const {
@@ -22,7 +27,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box p={3}>
-          <Typography>{children}</Typography>
+          {children}
         </Box>
       )}
     </div>
@@ -56,24 +61,22 @@ export default function HotProductView(props) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  console.log('xxx310 HotProductView props:  ', props);
   return (
-    <div className={classes.root} {...props}>
-      <AppBar position="static">
-        <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
-        </Tabs>
-      </AppBar>
+    <div className={clsx(classes.root, 'hotProView')} {...props}>
+      <Tabs className="hotProView__tab" value={value} onChange={handleChange} aria-label="simple tabs example">
+        <Tab label="Sản phẩm mới" {...a11yProps(0)} />
+        <Tab label="Sản phẩm bán chạy" {...a11yProps(1)} />
+        <Tab label="Sản phẩm khuyến mãi" {...a11yProps(2)} />
+      </Tabs>
       <TabPanel value={value} index={0}>
-        Item One
+        <ProductList />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <ProductList />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <ProductList />
       </TabPanel>
     </div>
   );

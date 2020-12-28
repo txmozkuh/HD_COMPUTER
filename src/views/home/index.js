@@ -10,6 +10,7 @@ import clsx from 'clsx';
 import './index.scss';
 import BannerView from './BannerView/BannerView';
 import HotAreaView from './HotAreaView';
+import ProductCategoryView from './ProductCategoryView';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,6 +33,7 @@ const Home = () => {
         <Grid container direction="column" wrap="nowrap" justify="flex-start" alignItems="center">
           <BannerView />
           <HotAreaView />
+          <ProductCategoryView />
         </Grid>
       </Container>
     </Page>

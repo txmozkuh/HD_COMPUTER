@@ -29,12 +29,17 @@ const HotNewsView = (props) => {
 
 const NewsCard = (props) => {
   return (
-    <Grid container direction="row" wrap="nowrap" className="newsCard">
-      <img src={require('./newsImg/1.jpg')} alt="1" />
-      <p className="desc">
-        » RTX 3000 Seri Hữu Ích Như Thế Nào Cho Quá ...
-        (25-10-2020, 10:36 am)
-      </p>
+    <Grid container direction="row" wrap="nowrap" justify="space-between" alignItems="center" className="newsCard">
+      <Grid item xs={6} md={6} lg={6} alignContent="center">
+        <img className="newsCard__img" src={require('./newsImg/1.jpg')} alt="1" />
+      </Grid>
+      <Grid item xs={6} md={6} lg={6} alignContent="center">
+        <p className="newsCard__p">
+          » RTX 3000 Seri Hữu Ích Như Thế Nào Cho Quá ...
+          <br />
+          (25-10-2020, 10:36 am)
+        </p>
+      </Grid>
     </Grid>
   );
 };

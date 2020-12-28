@@ -21,6 +21,7 @@ dependencies:
   react-dom: 16.14.0_react@16.14.0
   react-feather: 2.0.9_react@16.14.0
   react-helmet: 6.1.0_react@16.14.0
+  react-icons: 4.1.0_react@16.14.0
   react-pdf: 5.1.0_react-dom@16.14.0+react@16.14.0
   react-perfect-scrollbar: 1.5.8_react-dom@16.14.0+react@16.14.0
   react-redux: 7.2.2_bbabd8c34ea235719dc50e75b43f85a4
@@ -10576,6 +10577,14 @@ packages:
       react: '>=16.3.0'
     resolution:
       integrity: sha512-4uMzEY9nlDlgxr61NL3XbKRy1hEkXmKNXhjbAIOVw5vcFrsdYbH2FEwcNyWvWinl103nXgzYNlns9ca+8kFiWw==
+  /react-icons/4.1.0_react@16.14.0:
+    dependencies:
+      react: 16.14.0
+    dev: false
+    peerDependencies:
+      react: '*'
+    resolution:
+      integrity: sha512-FCXBg1JbbR0vWALXIxmFAfozHdVIJmmwCD81Jk0EKOt7Ax4AdBNcaRkWhR0NaKy9ugJgoY3fFvo0PHpte55pXg==
   /react-is/16.13.1:
     resolution:
       integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
@@ -13239,6 +13248,7 @@ specifiers:
   react-dom: ^16.14.0
   react-feather: ^2.0.9
   react-helmet: ^6.1.0
+  react-icons: ^4.1.0
   react-pdf: ^5.1.0
   react-perfect-scrollbar: ^1.5.8
   react-redux: ^7.2.2

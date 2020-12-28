@@ -1,0 +1,15 @@
+.hotNewsView {
+	&__title {
+		text-transform: uppercase;
+		// font-weight: bolder;
+		font-size: 16px;
+		padding: 10px;
+		background: #d00;
+		color: white;
+		line-height: 35px;
+		border-radius: 3px 3px 0 0;
+	}
+	.newsCard {
+		padding: 5px;
+	}
+}

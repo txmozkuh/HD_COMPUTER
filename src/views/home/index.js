@@ -7,10 +7,9 @@ import {
 } from '@material-ui/core';
 import Page from 'src/components/Page';
 import clsx from 'clsx';
-
-import BannerView from './BannerView/BannerView';
-
 import './index.scss';
+import BannerView from './BannerView/BannerView';
+import HotAreaView from './HotAreaView';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,6 +31,7 @@ const Home = () => {
       <Container maxWidth={false}>
         <Grid container direction="column" wrap="nowrap" justify="flex-start" alignItems="center">
           <BannerView />
+          <HotAreaView />
         </Grid>
       </Container>
     </Page>

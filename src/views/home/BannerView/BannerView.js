@@ -20,12 +20,20 @@ import { Carousel } from 'react-responsive-carousel';
 const Home = () => {
   const youtubeId = 'SFvVDYvoSVE';
   return (
-    <Grid container direction="row" className="banner">
+    <Grid container direction="row" justify="center" className="banner">
       <Grid
         item
-        xl={8}
-        lg={8}
-        md={8}
+        xl={3}
+        lg={3}
+        md={3}
+        xs={false}
+        className="banner__category"
+      />
+      <Grid
+        item
+        xl={6}
+        lg={6}
+        md={6}
         xs={12}
         className="banner__left"
       >
@@ -72,9 +80,9 @@ const Home = () => {
       </Grid>
       <Grid
         item
-        xl={4}
-        lg={4}
-        md={4}
+        xl={3}
+        lg={3}
+        md={3}
         xs={12}
         className="banner__right rightBanner"
       >
@@ -84,7 +92,6 @@ const Home = () => {
             position: 'relative',
             paddingBottom: '56.25%' /* 16:9 */,
             paddingTop: 25,
-            height: 0
           }}
         >
           <iframe

@@ -21,6 +21,7 @@
 		"jsx-a11y/click-events-have-key-events": "off",
 		"jsx-a11y/control-has-associated-label": "off",
 		"jsx-a11y/no-static-element-interactions": "off",
+		"jsx-a11y/anchor-has-content": "off",
 		"no-console": "off",
 		"no-param-reassign": "off",
 		"no-plusplus": "off",
@@ -29,7 +30,7 @@
 		"react/jsx-filename-extension": "off",
 		"react/jsx-props-no-spreading": "off",
 		"react/require-default-props": "off",
-		"no-unused-vars": "warn",
+		"no-unused-vars": ["warn", { "args": "none" }],
 		"react/prop-types": ["off"],
 		"no-shadow": "off"
 	}

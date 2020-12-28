@@ -1,19 +1,14 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
-import DashboardLayout from 'src/layouts/DashboardLayout';
 import MainLayout from 'src/layouts/MainLayout';
-import AccountView from 'src/views/account/AccountView';
 import LoginView from 'src/views/auth/LoginView';
 import RegisterView from 'src/views/auth/RegisterView/RegisterView';
-import CustomerListView from 'src/views/customer/CustomerListView';
-import CvView from 'src/views/cv/CvView';
 import NotFoundView from 'src/views/errors/NotFoundView';
-import CvInfoView from './views/cv/CvInfoView';
-import CvUploadView from './views/cv/CvUploadView';
+import HomeView from 'src/views/home';
 
 // TODO: make navigate to Error page 2 level. goBack(-2)
 
-const routes = (isLoggedIn) => [
+const routes = () => [
   // {
   //   path: 'cv',
   //   element: <DashboardLayout />,
@@ -36,7 +31,7 @@ const routes = (isLoggedIn) => [
       { path: 'login', element: <LoginView /> },
       { path: 'register', element: <RegisterView /> },
       { path: '404', element: <NotFoundView /> },
-      { path: '/', element: <AccountView /> },
+      { path: '/', element: <HomeView /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]
   }

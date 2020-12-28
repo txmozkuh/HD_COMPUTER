@@ -5,7 +5,7 @@ import typography from './typography';
 const theme = createMuiTheme({
   palette: {
     background: {
-      dark: colors.lightGreen[200],
+      dark: colors.common.white,
       default: colors.common.white,
       paper: colors.common.white
     },
@@ -18,9 +18,6 @@ const theme = createMuiTheme({
     text: {
       primary: colors.blueGrey[900],
       secondary: colors.blueGrey[600]
-    },
-    neutral: {
-      main: '#5c6ac4',
     },
   },
   shadows,

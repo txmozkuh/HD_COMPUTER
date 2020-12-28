@@ -1,0 +1,28 @@
+.banner {
+	&__left {
+		padding: 10px;
+		.carousel .thumb img {
+			width: 100% !important;
+			height: 100% !important;
+		}
+
+		.carousel .slide img {
+			max-height: 400px; /* change this to whatever you want */
+			width: auto;
+		}
+	}
+
+	.rightBanner {
+		padding: 5px;
+		&__video,
+		&__img {
+			margin: 5px;
+		}
+
+		&__img {
+			img {
+				width: 100%;
+			}
+		}
+	}
+}

@@ -32,6 +32,6 @@
 		"react/require-default-props": "off",
 		"no-unused-vars": ["warn", { "args": "none" }],
 		"react/prop-types": ["off"],
-		"no-shadow": "off"
+		"no-shadow": "warn"
 	}
 }

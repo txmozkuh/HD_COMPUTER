@@ -10,7 +10,7 @@ import clsx from 'clsx';
 import './index.scss';
 import BannerView from './BannerView/BannerView';
 import HotAreaView from './HotAreaView';
-import ProductCategoryView from './ProductCategoryView';
+import ProductCategoryView from './ProductCategory/ProductCategoryView';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,6 +34,8 @@ const Home = () => {
           <BannerView />
           <HotAreaView />
           <ProductCategoryView />
+          <ProductCategoryView />
+
         </Grid>
       </Container>
     </Page>

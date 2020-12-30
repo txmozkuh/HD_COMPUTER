@@ -3,11 +3,14 @@ import {
   Grid,
   makeStyles
 } from '@material-ui/core';
-import './index.scss';
+import './ProductCategoryView.scss';
+import { AiOutlineDoubleRight as DoubleArrowIcon } from 'react-icons/ai';
 import ProductList from 'src/components/ProductList/ProductList';
+import clsx from 'clsx';
 import SingleNews from './SingleNews';
 
 const useStyles = makeStyles((theme) => ({
+
 }));
 
 const ProductCategoryView = () => {
@@ -19,17 +22,22 @@ const ProductCategoryView = () => {
         <div className=" proCaViewBar__title">
           Máy tính để bàn
         </div>
-        <div className=" proCaViewBar__category">
+        <div className="proCaViewBar__category">
           Máy tính chơi game
         </div>
-        <div className=" proCaViewBar__category">
+        <div className="proCaViewBar__category">
           Máy tính chơi game cũ (2nd)
         </div>
-        <div className=" proCaViewBar__category">
+        <div className="proCaViewBar__category">
           Máy tính đồ họa
         </div>
-        <div className=" proCaViewBar__category">
+        <div className="proCaViewBar__category">
           Máy tính văn phòng
+        </div>
+
+        <div className="proCaViewBar__category end-div">
+          Xem tất cả
+          <DoubleArrowIcon className="end-div__icon" />
         </div>
       </Grid>
       <Grid container direction="row" justify="flex-start" alignItems="flex-start" className="proCaView__content proCaViewContent">

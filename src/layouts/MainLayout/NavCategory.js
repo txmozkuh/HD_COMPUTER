@@ -12,16 +12,31 @@ import './NavCategory.scss';
 const useStyles = makeStyles(({
 }));
 
-const NavCategory = ({ className }) => {
+const NavCategory = (props) => {
   return (
-    <Grid container justify="center">
-      <div>Danh mục sản phẩm</div>
-      <Menu open={false}>
-        <MenuItem>a</MenuItem>
-        <MenuItem>b</MenuItem>
+    <Grid className="nav-category" container justify="center">
+      <div className="menu">
+        <div className="menu__title">Danh mục sản phẩm</div>
+        <SubMenu />
+      </div>
 
-      </Menu>
     </Grid>
+  );
+};
+
+const SubMenu = (props) => {
+  return (
+    <ul className="submenu">
+      <li className="submenu__item ">
+        <a>Our Company</a>
+      </li>
+      <li className="submenu__item ">
+        <a>Our Team</a>
+      </li>
+      <li className="submenu__item ">
+        <a>Our Portfolio</a>
+      </li>
+    </ul>
   );
 };
 

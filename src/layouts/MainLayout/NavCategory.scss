@@ -1,2 +1,30 @@
-.navCategory {
+@import 'src/scss/main.scss';
+
+.nav-category {
+	.menu {
+		position: relative;
+		cursor: pointer;
+
+		&:hover {
+			.submenu {
+				display: block;
+			}
+		}
+	}
+
+	.submenu {
+		// display: none;
+		list-style: none;
+
+		position: absolute;
+
+		&__item {
+			&:hover {
+				background-color: $primaryColor;
+				// background: rgba(#000, 0.1); // for darker color
+
+				color: white;
+			}
+		}
+	}
 }

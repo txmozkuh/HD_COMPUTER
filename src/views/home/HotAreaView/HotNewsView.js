@@ -30,10 +30,10 @@ const HotNewsView = (props) => {
 const NewsCard = (props) => {
   return (
     <Grid container direction="row" wrap="nowrap" justify="space-between" alignItems="center" className="newsCard">
-      <Grid item xs={6} md={6} lg={6} alignContent="center">
+      <Grid item xs={5} md={5} lg={5}>
         <img className="newsCard__img" src={require('./newsImg/1.jpg')} alt="1" />
       </Grid>
-      <Grid item xs={6} md={6} lg={6} alignContent="center">
+      <Grid item xs={7} md={7} lg={7}>
         <p className="newsCard__p">
           » RTX 3000 Seri Hữu Ích Như Thế Nào Cho Quá ...
           <br />

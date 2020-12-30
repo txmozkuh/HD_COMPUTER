@@ -45,6 +45,7 @@ const NavHeader = ({ className, ...rest }) => {
         direction="row"
         justify="space-around"
         alignContent="center"
+        className="navHeader__intro"
       >
         {/* <div> */}
         <a href="/chinh-sach-hang-chinh-hang.html">

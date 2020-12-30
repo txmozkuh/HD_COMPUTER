@@ -1,5 +1,7 @@
+@import 'src/scss/main.scss';
+
 .footer {
-	background-color: #17324f;
+	background-color: $primaryColor;
 	min-height: auto;
 	color: white;
 

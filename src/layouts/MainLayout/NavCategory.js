@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import {
   makeStyles,
@@ -25,18 +26,60 @@ const NavCategory = ({ className }) => {
     <Grid className="nav-category" container justify="center">
       <div className="menu">
         <div className="menu__title">Danh mục sản phẩm</div>
-        <SubMenu />
+        <MenuItems />
       </div>
 
     </Grid>
   );
 };
 
+const SubItem = [
+  { title: 'Máy tính chơi game ', items: [{ name: 'PC Gaming cũ', url: '#' }, { name: 'PC Gaming mới', url: '#' }, { name: 'PC Gaming Cao Cao', url: '#' }, { name: 'PC Gaming cũ', url: '#' }] },
+  { title: 'PC Gaming Theo CPU  ', items: [{ name: 'PC Gaming Pentium', url: '#' }, { name: 'PC Gaming Ryzen 7', url: '#' }, { name: 'PC Gaming Cao Cao', url: '#' }] },
+  { title: 'Máy tính chơi game ', items: [{ name: 'PC Gaming cũ', url: '#' }, { name: 'PC Gaming mới', url: '#' }, { name: 'PC Gaming Cao Cao', url: '#' }, { name: 'PC Gaming cũ', url: '#' }, { name: 'PC Gaming cũ', url: '#' },] },
+  { title: 'Máy tính chơi game ', items: [{ name: 'PC Gaming cũ', url: '#' }, { name: 'PC Gaming mới', url: '#' }, { name: 'PC Gaming Cao Cao', url: '#' }] },
+  { title: 'PC Gaming Theo CPU  ', items: [{ name: 'PC Gaming Pentium', url: '#' }, { name: 'PC Gaming Ryzen 7', url: '#' }, { name: 'PC Gaming Cao Cao', url: '#' }] }
+];
+
 const SubMenu = (props) => {
+  const { data } = props;
+
   return (
-    <ul className="submenu">
-      <li className="submenu__item submenu-item">
-        <a className="submenu-item__title sub-item-title">
+    <Grid className="sub" container direction="row" wrap="wrap" justify="flex-start" alignContent="flex-start">
+      {
+        data && data.map((subItem, idx) => {
+          const { title, items } = subItem;
+          return (
+            <Grid
+              item
+              xl={3}
+              lg={3}
+              md={4}
+              xs={6}
+              container
+              direction="column"
+              justify="flex-start"
+              alignItems="flex-start"
+              key={`sub__${idx}`}
+              className="sub-items"
+            >
+              <div className="sub-items__title">{title}</div>
+              <ul className="sub-items__item">
+                {items && items.map((item) => <li><a href={item.url}>{item.name}</a></li>)}
+              </ul>
+            </Grid>
+          );
+        })
+      }
+    </Grid>
+  );
+};
+
+const MenuItems = (props) => {
+  return (
+    <ul className="menu-items">
+      <li className="menu-items__item menu-items-item">
+        <a className="menu-items-item__title sub-item-title">
           <span className="sub-item-title__icon">
             <ImgIcon name="computer" size={25} />
           </span>
@@ -44,10 +87,10 @@ const SubMenu = (props) => {
             Máy tính để bàn
           </span>
         </a>
-        {/* <div className="submenu-item__content">abc</div> */}
+        <div className="menu-items-item__content sub-item-content"><SubMenu data={SubItem} /></div>
       </li>
-      <li className="submenu__item submenu-item">
-        <a className="submenu-item__title sub-item-title">
+      <li className="menu-items__item menu-items-item">
+        <a className="menu-items-item__title sub-item-title">
           <span className="sub-item-title__icon">
             <OfficeLaptopIcon size={25} />
           </span>
@@ -55,10 +98,10 @@ const SubMenu = (props) => {
             Máy tính văn phòng
           </span>
         </a>
-        {/* <div className="submenu-item__content">abc</div> */}
+        {/* <div className="menu-items-item__content">abc</div> */}
       </li>
-      <li className="submenu__item submenu-item">
-        <a className="submenu-item__title sub-item-title">
+      <li className="menu-items__item menu-items-item">
+        <a className="menu-items-item__title sub-item-title">
           <span className="sub-item-title__icon">
             <ImgIcon name="workstation" size={25} />
           </span>
@@ -66,10 +109,10 @@ const SubMenu = (props) => {
             Máy chủ - máy trạm
           </span>
         </a>
-        {/* <div className="submenu-item__content">abc</div> */}
+        {/* <div className="menu-items-item__content">abc</div> */}
       </li>
-      <li className="submenu__item submenu-item">
-        <a className="submenu-item__title sub-item-title">
+      <li className="menu-items__item menu-items-item">
+        <a className="menu-items-item__title sub-item-title">
           <span className="sub-item-title__icon">
             <ImgIcon name="linh-kien" size={25} />
           </span>
@@ -77,10 +120,10 @@ const SubMenu = (props) => {
             Linh kiện máy tính
           </span>
         </a>
-        {/* <div className="submenu-item__content">abc</div> */}
+        {/* <div className="menu-items-item__content">abc</div> */}
       </li>
-      <li className="submenu__item submenu-item">
-        <a className="submenu-item__title sub-item-title">
+      <li className="menu-items__item menu-items-item">
+        <a className="menu-items-item__title sub-item-title">
           <span className="sub-item-title__icon">
             <ImgIcon name="monitor" size={25} />
           </span>
@@ -88,10 +131,10 @@ const SubMenu = (props) => {
             Màn hình máy tính
           </span>
         </a>
-        {/* <div className="submenu-item__content">abc</div> */}
+        {/* <div className="menu-items-item__content">abc</div> */}
       </li>
-      <li className="submenu__item submenu-item">
-        <a className="submenu-item__title sub-item-title">
+      <li className="menu-items__item menu-items-item">
+        <a className="menu-items-item__title sub-item-title">
           <span className="sub-item-title__icon">
             <ImgIcon name="headphones" size={25} />
           </span>
@@ -99,10 +142,10 @@ const SubMenu = (props) => {
             Thiết bị, phụ kiện
           </span>
         </a>
-        {/* <div className="submenu-item__content">abc</div> */}
+        {/* <div className="menu-items-item__content">abc</div> */}
       </li>
-      <li className="submenu__item submenu-item">
-        <a className="submenu-item__title sub-item-title">
+      <li className="menu-items__item menu-items-item">
+        <a className="menu-items-item__title sub-item-title">
           <span className="sub-item-title__icon">
             <ImgIcon name="fan" size={25} />
           </span>
@@ -110,10 +153,10 @@ const SubMenu = (props) => {
             Tản nhiệt - Cooling
           </span>
         </a>
-        {/* <div className="submenu-item__content">abc</div> */}
+        {/* <div className="menu-items-item__content">abc</div> */}
       </li>
-      <li className="submenu__item submenu-item">
-        <a className="submenu-item__title sub-item-title">
+      <li className="menu-items__item menu-items-item">
+        <a className="menu-items-item__title sub-item-title">
           <span className="sub-item-title__icon">
             <ImgIcon name="chair" size={25} />
           </span>
@@ -121,7 +164,7 @@ const SubMenu = (props) => {
             Bán ghế chơi game
           </span>
         </a>
-        {/* <div className="submenu-item__content">abc</div> */}
+        {/* <div className="menu-items-item__content">abc</div> */}
       </li>
     </ul>
   );

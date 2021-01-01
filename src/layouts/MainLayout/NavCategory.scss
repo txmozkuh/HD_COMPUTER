@@ -1,15 +1,24 @@
 @import 'src/scss/main.scss';
 
+@mixin nav-box {
+	box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+		rgba(17, 17, 26, 0.1) 0px 0px 8px;
+	border: solid 1px #f0efef;
+	background-color: white;
+}
 $ulHeight: 38px;
 
 .nav-category {
 	.menu {
-		min-width: 50%;
+		min-width: 200px;
+		width: 50%;
+		max-width: 250px;
 		position: relative;
 		cursor: pointer;
 
+		&:focus-within > ul,
 		&:hover {
-			.submenu {
+			.menu-items {
 				display: block;
 			}
 		}
@@ -23,15 +32,13 @@ $ulHeight: 38px;
 		}
 	}
 
-	.submenu {
-		// display: none;
-		list-style: none;
-		background-color: white;
-		box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
-			rgba(17, 17, 26, 0.1) 0px 0px 8px;
-		border: solid 1px #f0efef;
+	.menu-items {
+		display: none;
 
-		margin-top: 5px;
+		@include nav-box;
+		list-style: none;
+
+		margin-top: -2px;
 		width: 100%;
 
 		position: absolute;
@@ -39,28 +46,32 @@ $ulHeight: 38px;
 		&__item {
 			height: $ulHeight;
 			border-top: solid 1px rgb(179, 161, 161);
+			padding-left: 3px;
+			line-height: $ulHeight;
 
 			&:hover {
-				background-color: $primaryColor;
-				// background: rgba(#000, 0.1); // for darker color
-
-				color: white;
-
-				transition: 0.2 ease-in-out;
-				transform: scale(1.1);
+				.sub-item-content {
+					display: block;
+				}
 			}
 		}
 	}
 
-	.submenu-item {
-		padding-left: 5px;
-		height: $ulHeight;
-		line-height: $ulHeight;
+	.menu-items-item {
 		&__title,
 		.sub-item-title {
 			width: 100%;
 			display: flex;
 			flex-flow: row nowrap;
+
+			&:hover {
+				background-color: $primaryColor;
+				// background: rgba(#000, 0.1); // for darker color
+				color: white;
+				transition: 0.2 ease-in-out;
+				transform: scale(1.05);
+			}
+
 			&__icon {
 				border-radius: 50%;
 				background: #fff;
@@ -74,7 +85,55 @@ $ulHeight: 38px;
 			}
 			&__title {
 				text-transform: uppercase;
-				margin-left: 10px;
+				margin-left: 5px;
+				font-size: 13px;
+			}
+		}
+
+		&__content {
+			z-index: 100;
+			position: absolute;
+			left: 212px;
+			width: max-content;
+			background-color: white;
+			top: 2px;
+		}
+	}
+
+	.sub-item-content {
+		display: none;
+	}
+
+	.sub {
+		@include nav-box();
+		cursor: default;
+		text-transform: none;
+
+		.sub-items {
+			padding: 10px;
+
+			&__title {
+				color: red;
+			}
+
+			&__item {
+				@include reset-list;
+				line-height: 25px;
+
+				li {
+					&:hover {
+						transition: 0.2 ease-in-out;
+						transform: scale(1.03);
+					}
+				}
+
+				li > a {
+					color: black;
+					&:hover {
+						color: red;
+						text-decoration: underline;
+					}
+				}
 			}
 		}
 	}

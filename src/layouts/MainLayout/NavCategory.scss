@@ -1,7 +1,10 @@
 @import 'src/scss/main.scss';
 
+$ulHeight: 38px;
+
 .nav-category {
 	.menu {
+		min-width: 50%;
 		position: relative;
 		cursor: pointer;
 
@@ -10,20 +13,68 @@
 				display: block;
 			}
 		}
+
+		&__title {
+			margin-left: 5%;
+			&:hover {
+				color: red;
+				text-decoration: underline solid lightcoral;
+			}
+		}
 	}
 
 	.submenu {
 		// display: none;
 		list-style: none;
+		background-color: white;
+		box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+			rgba(17, 17, 26, 0.1) 0px 0px 8px;
+		border: solid 1px #f0efef;
+
+		margin-top: 5px;
+		width: 100%;
 
 		position: absolute;
 
 		&__item {
+			height: $ulHeight;
+			border-top: solid 1px rgb(179, 161, 161);
+
 			&:hover {
 				background-color: $primaryColor;
 				// background: rgba(#000, 0.1); // for darker color
 
 				color: white;
+
+				transition: 0.2 ease-in-out;
+				transform: scale(1.1);
+			}
+		}
+	}
+
+	.submenu-item {
+		padding-left: 5px;
+		height: $ulHeight;
+		line-height: $ulHeight;
+		&__title,
+		.sub-item-title {
+			width: 100%;
+			display: flex;
+			flex-flow: row nowrap;
+			&__icon {
+				border-radius: 50%;
+				background: #fff;
+				width: $ulHeight - 4;
+				margin: 2px;
+				color: black;
+
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			&__title {
+				text-transform: uppercase;
+				margin-left: 10px;
 			}
 		}
 	}

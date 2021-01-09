@@ -1,16 +1,26 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import {
   Grid
 } from '@material-ui/core';
-import PropTypes from 'prop-types';
+
+import _ from 'lodash';
 
 import { IoIosLaptop as OfficeLaptopIcon } from 'react-icons/io';
 
 import './NavCategory.scss';
 import ImgIcon from 'src/icons/ImgIcon';
+import { SHOW_MENU_THRESHOLD } from 'src/utils/constants';
 
-const NavCategory = (props) => {
+const SubItem = [
+  { title: 'Máy tính chơi game ', items: [{ name: 'PC Gaming cũ', url: '#' }, { name: 'PC Gaming mới', url: '#' }, { name: 'PC Gaming Cao Cao', url: '#' }, { name: 'PC Gaming cũ', url: '#' }] },
+  { title: 'PC Gaming Theo CPU  ', items: [{ name: 'PC Gaming Pentium', url: '#' }, { name: 'PC Gaming Ryzen 7', url: '#' }, { name: 'PC Gaming Cao Cao', url: '#' }] },
+  { title: 'Máy tính chơi game ', items: [{ name: 'PC Gaming cũ', url: '#' }, { name: 'PC Gaming mới', url: '#' }, { name: 'PC Gaming Cao Cao', url: '#' }, { name: 'PC Gaming cũ', url: '#' }, { name: 'PC Gaming cũ', url: '#' }] },
+  { title: 'Máy tính chơi game ', items: [{ name: 'PC Gaming cũ', url: '#' }, { name: 'PC Gaming mới', url: '#' }, { name: 'PC Gaming Cao Cao', url: '#' }] },
+  { title: 'PC Gaming Theo CPU  ', items: [{ name: 'PC Gaming Pentium', url: '#' }, { name: 'PC Gaming Ryzen 7', url: '#' }, { name: 'PC Gaming Cao Cao', url: '#' }] }
+];
+
+const NavCategory = () => {
   return (
     <Grid className="nav-category" container justify="center">
       <div className="menu">
@@ -21,14 +31,6 @@ const NavCategory = (props) => {
     </Grid>
   );
 };
-
-const SubItem = [
-  { title: 'Máy tính chơi game ', items: [{ name: 'PC Gaming cũ', url: '#' }, { name: 'PC Gaming mới', url: '#' }, { name: 'PC Gaming Cao Cao', url: '#' }, { name: 'PC Gaming cũ', url: '#' }] },
-  { title: 'PC Gaming Theo CPU  ', items: [{ name: 'PC Gaming Pentium', url: '#' }, { name: 'PC Gaming Ryzen 7', url: '#' }, { name: 'PC Gaming Cao Cao', url: '#' }] },
-  { title: 'Máy tính chơi game ', items: [{ name: 'PC Gaming cũ', url: '#' }, { name: 'PC Gaming mới', url: '#' }, { name: 'PC Gaming Cao Cao', url: '#' }, { name: 'PC Gaming cũ', url: '#' }, { name: 'PC Gaming cũ', url: '#' }] },
-  { title: 'Máy tính chơi game ', items: [{ name: 'PC Gaming cũ', url: '#' }, { name: 'PC Gaming mới', url: '#' }, { name: 'PC Gaming Cao Cao', url: '#' }] },
-  { title: 'PC Gaming Theo CPU  ', items: [{ name: 'PC Gaming Pentium', url: '#' }, { name: 'PC Gaming Ryzen 7', url: '#' }, { name: 'PC Gaming Cao Cao', url: '#' }] }
-];
 
 const SubMenu = (props) => {
   const { data } = props;
@@ -72,8 +74,21 @@ const SubMenu = (props) => {
 };
 
 const MenuItems = () => {
+  const [showMenu, setShowMenu] = useState(false);
+
+  useLayoutEffect(() => {
+    // eslint-disable-next-line no-underscore-dangle
+    function getScrollPosition() {
+      // console.log(window.scrollY);
+      if (window.scrollY < SHOW_MENU_THRESHOLD) { setShowMenu(true); } else setShowMenu(false);
+    }
+    window.addEventListener('scroll', getScrollPosition);
+    getScrollPosition();
+
+    return () => window.removeEventListener('scroll', getScrollPosition);
+  }, []);
   return (
-    <ul className="menu-items" id="menu-items">
+    <ul style={{ display: showMenu ? 'block' : '' }} className="menu-items" id="menu-items">
       <li className="menu-items__item menu-items-item">
         <a className="menu-items-item__title sub-item-title">
           <span className="sub-item-title__icon">
@@ -96,7 +111,9 @@ const MenuItems = () => {
             Máy tính văn phòng
           </span>
         </a>
-        {/* <div className="menu-items-item__content">abc</div> */}
+        <div className="menu-items-item__content sub-item-content">
+          <SubMenu data={SubItem} />
+        </div>
       </li>
       <li className="menu-items__item menu-items-item">
         <a className="menu-items-item__title sub-item-title">
@@ -107,7 +124,9 @@ const MenuItems = () => {
             Máy chủ - máy trạm
           </span>
         </a>
-        {/* <div className="menu-items-item__content">abc</div> */}
+        <div className="menu-items-item__content sub-item-content">
+          <SubMenu data={SubItem} />
+        </div>
       </li>
       <li className="menu-items__item menu-items-item">
         <a className="menu-items-item__title sub-item-title">
@@ -118,7 +137,9 @@ const MenuItems = () => {
             Linh kiện máy tính
           </span>
         </a>
-        {/* <div className="menu-items-item__content">abc</div> */}
+        <div className="menu-items-item__content sub-item-content">
+          <SubMenu data={SubItem} />
+        </div>
       </li>
       <li className="menu-items__item menu-items-item">
         <a className="menu-items-item__title sub-item-title">

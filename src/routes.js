@@ -5,6 +5,7 @@ import LoginView from 'src/views/auth/LoginView';
 import RegisterView from 'src/views/auth/RegisterView/RegisterView';
 import NotFoundView from 'src/views/errors/NotFoundView';
 import HomeView from 'src/views/home';
+import ProductDetail from './views/product/ProductDetailView';
 
 // TODO: make navigate to Error page 2 level. goBack(-2)
 
@@ -32,6 +33,7 @@ const routes = () => [
       { path: 'register', element: <RegisterView /> },
       { path: '404', element: <NotFoundView /> },
       { path: '/', element: <HomeView /> },
+      { path: '/:productUrl', element: <ProductDetail /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]
   }

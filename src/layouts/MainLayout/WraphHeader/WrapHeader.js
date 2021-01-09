@@ -3,22 +3,21 @@ import {
   Toolbar
 } from '@material-ui/core';
 import clsx from 'clsx';
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { withStyles } from '@material-ui/styles';
+import { SHOW_MENU_THRESHOLD, DEFAULT_HEADER_HEIGHT } from 'src/utils/constants';
+
 import MainHeader from './MainHeader';
 import TopBar from '../TopBar';
 
 import './WrapHeader.scss';
 
-const DEFAULT_HEADER_HEIGHT = 34;
-
 const styles = {
   root: {
   },
   topbar: {
-    minHeight: 34,
+    minHeight: DEFAULT_HEADER_HEIGHT,
   },
   show: {
     // transform: 'translate(0, 0)',
@@ -42,7 +41,7 @@ class WrapHeader extends Component {
     // this.handleScroll = this.handleScroll.bind(this);
     // Alternatively, you can throttle scroll events to avoid
     // updating the state too often. Here using lodash.
-    this.handleScroll = _.throttle(this.handleScroll.bind(this), 100);
+    this.handleScroll = _.throttle(this.handleScroll.bind(this), 200);
   }
 
   componentDidMount() {
@@ -61,7 +60,13 @@ class WrapHeader extends Component {
       return;
     }
 
-    const isShouldShow = this.lastScroll !== null ? currLastScroll < this.lastScroll : null;
+    console.log('xxx 563 scroll: ', currLastScroll, this.lastScroll);
+    // let isShouldShow = this.lastScroll !== null ? currLastScroll < this.lastScroll : null;
+    let isShouldShow = true;
+
+    if (currLastScroll > SHOW_MENU_THRESHOLD + 50) {
+      isShouldShow = false;
+    }
 
     if (isShouldShow !== shouldShow) {
       this.setState((prevState) => ({
@@ -94,13 +99,15 @@ class WrapHeader extends Component {
       <AppBar
         className={clsx(classes.root, 'wrapHeader')}
         elevation={0}
-        // style={{ height: !shouldShow ? DEFAULT_HEADER_HEIGHT : '' }}
         id={id}
       >
         <Toolbar className={clsx(classes.topbar, 'wrapHeader__topbar')}>
           <TopBar />
         </Toolbar>
-        <Toolbar className={clsx('wrapHeader__main', this.getScrollClassName())}>
+        <Toolbar
+          className={clsx('wrapHeader__main', this.getScrollClassName())}
+          // style={{ display: this.lastScroll < SHOW_MENU_THRESHOLD ? 'none' : '' }}
+        >
           <MainHeader isHidding={!shouldShow} />
         </Toolbar>
       </AppBar>

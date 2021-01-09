@@ -37,16 +37,16 @@ const EVENT_GRID_EL = {
       xs: 12,
     },
     phone: {
-      xl: 4,
-      lg: 4,
-      md: 4,
+      xl: 3,
+      lg: 3,
+      md: 3,
       sm: 6,
       xs: 6,
     },
     cart: {
-      xl: 1,
-      lg: 1,
-      md: 1,
+      xl: 2,
+      lg: 2,
+      md: 2,
       sm: 6,
       xs: 6,
     },
@@ -74,16 +74,16 @@ const EVENT_GRID_EL = {
       xs: 8,
     },
     phone: {
-      xl: 4,
-      lg: 4,
-      md: 4,
+      xl: 3,
+      lg: 3,
+      md: 3,
       sm: 8,
       xs: 8,
     },
     cart: {
-      xl: 1,
-      lg: 1,
-      md: 1,
+      xl: 2,
+      lg: 2,
+      md: 2,
       sm: 4,
       xs: 4,
     },
@@ -101,7 +101,6 @@ const MainHeader = (props) => {
   const classes = useStyles();
 
   const { className, isHidding, ...rest } = props;
-  console.log('xxx561 is hidding: ', isHidding);
   return (
     <Grid
       container
@@ -120,7 +119,7 @@ const MainHeader = (props) => {
         className={`${isHidding ? classes.hideEl : ''}`}
       >
         <Grid>
-          <img alt="main-logo" src="/static/icons/lap_icon.png" height={65} />
+          <img alt="main-logo" src="/static/icons/logo.png" height={65} />
         </Grid>
       </Grid>
       <Grid

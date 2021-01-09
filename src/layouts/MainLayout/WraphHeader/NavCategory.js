@@ -4,13 +4,12 @@ import {
   Grid
 } from '@material-ui/core';
 
-import _ from 'lodash';
-
 import { IoIosLaptop as OfficeLaptopIcon } from 'react-icons/io';
 
 import './NavCategory.scss';
 import ImgIcon from 'src/icons/ImgIcon';
 import { SHOW_MENU_THRESHOLD } from 'src/utils/constants';
+import { useLocation } from 'react-router-dom';
 
 const SubItem = [
   { title: 'Máy tính chơi game ', items: [{ name: 'PC Gaming cũ', url: '#' }, { name: 'PC Gaming mới', url: '#' }, { name: 'PC Gaming Cao Cao', url: '#' }, { name: 'PC Gaming cũ', url: '#' }] },
@@ -75,12 +74,13 @@ const SubMenu = (props) => {
 
 const MenuItems = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const location = useLocation();
 
   useLayoutEffect(() => {
     // eslint-disable-next-line no-underscore-dangle
     function getScrollPosition() {
       // console.log(window.scrollY);
-      if (window.scrollY < SHOW_MENU_THRESHOLD) { setShowMenu(true); } else setShowMenu(false);
+      if (window.scrollY < SHOW_MENU_THRESHOLD && location.pathname === '/') { setShowMenu(true); } else setShowMenu(false);
     }
     window.addEventListener('scroll', getScrollPosition);
     getScrollPosition();

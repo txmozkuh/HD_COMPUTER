@@ -9,7 +9,6 @@ import Page from 'src/components/Page';
 
 import Breadcrumb from 'src/components/Breadcrumb/Breadcrumb';
 import tempData from './data';
-import ProdInfo from './ProdInfo';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const ProductDetail = () => {
+const ProdInfo = () => {
   const classes = useStyles();
   const [data] = useState(tempData[0]);
 
@@ -51,7 +50,7 @@ const ProductDetail = () => {
               sm={12}
               xs={12}
             >
-              <ProdInfo />
+              san pham
             </Grid>
             <Hidden smDown>
               <Grid
@@ -69,4 +68,4 @@ const ProductDetail = () => {
   );
 };
 
-export default ProductDetail;
+export default ProdInfo;

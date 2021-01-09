@@ -7,17 +7,19 @@ import {
 import { GiCheckMark as CheckIcon } from 'react-icons/gi';
 import { IoMdCart as CartIcon } from 'react-icons/io';
 import './Product.scss';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
 }));
 
 const Product = () => {
   const classes = useStyles();
+  const navigate = useNavigate();
 
   const productCode = 'PWTS0001';
   return (
 
-    <Card className="product" raised>
+    <Card className="product" raised onClick={() => navigate('product-url')}>
       <div className="product__code">
         Mã SP:
         {' '}

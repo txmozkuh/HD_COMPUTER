@@ -8,6 +8,7 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Search as SearchIcon, ShoppingCart as CardIcon } from 'react-feather';
+import SearchArea from 'src/components/SearchArea/SearchArea';
 import './MainHeader.scss';
 import NavCategory from './NavCategory';
 
@@ -20,30 +21,103 @@ const useStyles = makeStyles(() => ({
   },
   searchBtn: {
     alignSelf: 'center'
+  },
+  hideEl: {
+    display: 'none'
   }
 }));
 
-const MainHeader = ({ className, ...rest }) => {
+const EVENT_GRID_EL = {
+  hide: {
+    search: {
+      xl: 5,
+      lg: 5,
+      md: 5,
+      sm: 8,
+      xs: 12,
+    },
+    phone: {
+      xl: 4,
+      lg: 4,
+      md: 4,
+      sm: 6,
+      xs: 6,
+    },
+    cart: {
+      xl: 1,
+      lg: 1,
+      md: 1,
+      sm: 6,
+      xs: 6,
+    },
+    category: {
+      xl: 2,
+      lg: 2,
+      md: 2,
+      sm: 4,
+      xs: 12,
+    },
+  },
+  show: {
+    logo: {
+      xl: 2,
+      lg: 2,
+      md: 2,
+      sm: 4,
+      xs: 4,
+    },
+    search: {
+      xl: 5,
+      lg: 5,
+      md: 5,
+      sm: 8,
+      xs: 8,
+    },
+    phone: {
+      xl: 4,
+      lg: 4,
+      md: 4,
+      sm: 8,
+      xs: 8,
+    },
+    cart: {
+      xl: 1,
+      lg: 1,
+      md: 1,
+      sm: 4,
+      xs: 4,
+    },
+    category: {
+      xl: 4,
+      lg: 4,
+      md: 4,
+      sm: 4,
+      xs: 12,
+    }
+  }
+};
+
+const MainHeader = (props) => {
   const classes = useStyles();
 
+  const { className, isHidding, ...rest } = props;
+  console.log('xxx561 is hidding: ', isHidding);
   return (
     <Grid
       container
       direction="row"
-      justify="space-between"
+      justify="center"
       alignItems="center"
       className={clsx(classes.root, className, 'mainHeader')}
       {...rest}
     >
       <Grid
         item
-        xl={2}
-        lg={2}
-        md={4}
-        xs={4}
+        {... EVENT_GRID_EL[isHidding ? 'hide' : 'show'].logo}
         container
         justify="center"
         alignItems="center"
+        className={`${isHidding ? classes.hideEl : ''}`}
       >
         <Grid>
           <img alt="main-logo" src="/static/icons/lap_icon.png" height={65} />
@@ -51,45 +125,21 @@ const MainHeader = ({ className, ...rest }) => {
       </Grid>
       <Grid
         item
-        xl={6}
-        lg={6}
-        md={8}
-        xs={8}
         container
         direction="row"
         justify="center"
         alignContent="center"
         className="mainHeader__search"
+        {... EVENT_GRID_EL[isHidding ? 'hide' : 'show'].search}
       >
-        <Grid
-          item
-          xl={8}
-          lg={8}
-          md={8}
-          xs={8}
-        >
-          <TextField
-            placeholder="Gõ từ khóa tìm kiếm"
-            variant="outlined"
-            color="primary"
-            type="search"
-            fullWidth
-          />
-        </Grid>
-        <Grid className={clsx(classes.searchBtn)}>
-          <IconButton type="submit" className={classes.iconButton} aria-label="search">
-            <SearchIcon />
-          </IconButton>
-        </Grid>
+        <SearchArea />
       </Grid>
       <Grid
         item
-        xl={3}
-        lg={3}
-        md={8}
-        xs={8}
+        {... EVENT_GRID_EL[isHidding ? 'hide' : 'show'].phone}
         container
         direction="row"
+        justify="center"
         alignItems="center"
         className={clsx('mainHeader__phoneInfo')}
       >
@@ -102,14 +152,11 @@ const MainHeader = ({ className, ...rest }) => {
       </Grid>
       <Grid
         item
-        xl={1}
-        lg={1}
-        md={4}
-        xs={4}
+        {... EVENT_GRID_EL[isHidding ? 'hide' : 'show'].cart}
         container
         direction="row"
         alignItems="center"
-        justify="flex-end"
+        justify="center"
         className={clsx('mainHeader__cart cart')}
       >
         <Button className="cart__btn" startIcon={<CardIcon className="cardIcon" />}>
@@ -119,10 +166,8 @@ const MainHeader = ({ className, ...rest }) => {
       <div className="line-break" />
       <Grid
         item
-        xl={4}
-        lg={4}
-        md={4}
-        xs={false}
+        className={`mainHeader__nav ${isHidding ? 'set-first-order' : ''}`}
+        {... EVENT_GRID_EL[isHidding ? 'hide' : 'show'].category}
       >
         <NavCategory />
       </Grid>
@@ -130,8 +175,10 @@ const MainHeader = ({ className, ...rest }) => {
         item
         xl={8}
         lg={8}
-        md={false}
-        xs={false}
+        md={8}
+        sm={8}
+        xs={12}
+        className={`mainHeader__intro ${isHidding ? classes.hideEl : ''}`}
       >
         <IntroHeader />
       </Grid>

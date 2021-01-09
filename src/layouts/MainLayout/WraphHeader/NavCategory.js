@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Grid
 } from '@material-ui/core';
@@ -34,7 +34,14 @@ const SubMenu = (props) => {
   const { data } = props;
 
   return (
-    <Grid className="sub" container direction="row" wrap="wrap" justify="flex-start" alignContent="flex-start">
+    <Grid
+      className="sub"
+      container
+      direction="row"
+      wrap="wrap"
+      justify="flex-start"
+      alignContent="flex-start"
+    >
       {
         data && data.map((subItem, idx) => {
           const { title, items } = subItem;
@@ -66,7 +73,7 @@ const SubMenu = (props) => {
 
 const MenuItems = () => {
   return (
-    <ul className="menu-items">
+    <ul className="menu-items" id="menu-items">
       <li className="menu-items__item menu-items-item">
         <a className="menu-items-item__title sub-item-title">
           <span className="sub-item-title__icon">
@@ -76,7 +83,9 @@ const MenuItems = () => {
             Máy tính để bàn
           </span>
         </a>
-        <div className="menu-items-item__content sub-item-content"><SubMenu data={SubItem} /></div>
+        <div className="menu-items-item__content sub-item-content">
+          <SubMenu data={SubItem} />
+        </div>
       </li>
       <li className="menu-items__item menu-items-item">
         <a className="menu-items-item__title sub-item-title">

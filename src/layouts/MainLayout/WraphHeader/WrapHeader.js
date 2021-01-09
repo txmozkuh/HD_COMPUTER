@@ -21,12 +21,12 @@ const styles = {
     minHeight: 34,
   },
   show: {
-    transform: 'translate(0, 0)',
-    transition: 'transform .0s',
+    // transform: 'translate(0, 0)',
+    transition: 'transform .5s',
   },
   hide: {
-    transform: 'translate(0, -150px)',
-    transition: 'transform .0s',
+    // transform: 'translate(0, -150px)',
+    transition: 'transform .5s',
   },
 };
 
@@ -94,14 +94,14 @@ class WrapHeader extends Component {
       <AppBar
         className={clsx(classes.root, 'wrapHeader')}
         elevation={0}
-        style={{ height: !shouldShow ? DEFAULT_HEADER_HEIGHT : '' }}
+        // style={{ height: !shouldShow ? DEFAULT_HEADER_HEIGHT : '' }}
         id={id}
       >
         <Toolbar className={clsx(classes.topbar, 'wrapHeader__topbar')}>
           <TopBar />
         </Toolbar>
         <Toolbar className={clsx('wrapHeader__main', this.getScrollClassName())}>
-          <MainHeader />
+          <MainHeader isHidding={!shouldShow} />
         </Toolbar>
       </AppBar>
     );

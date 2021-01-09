@@ -1,0 +1,76 @@
+@import 'src/scss/main.scss';
+
+.footer {
+	background-color: $primaryColor;
+	min-height: auto;
+	color: white;
+
+	&__info {
+		padding: 20px;
+		&__item {
+			color: white;
+			margin: 10px;
+			padding: 15px;
+
+			h3 {
+				color: #fff;
+				border-bottom: 1px solid #5d5d5d;
+				padding-bottom: 10px;
+				text-transform: uppercase;
+			}
+
+			ul {
+				list-style: none;
+				li {
+					line-height: 22px;
+					margin: 2px;
+				}
+			}
+
+			a {
+				text-decoration: none;
+				color: white;
+			}
+
+			.paidMethod {
+				margin: 10px;
+
+				img {
+					margin: 5px;
+					transition: 0.5s ease-in-out;
+					cursor: pointer;
+
+					&:hover {
+						transform: scale(1.2) translateZ(10px);
+					}
+				}
+			}
+
+			.newsLetter {
+				margin-top: 10px;
+				&__email {
+					background: white;
+					vertical-align: middle;
+					margin-right: 5px;
+				}
+
+				&__btn {
+					color: white;
+					background: black;
+					padding: 5px;
+				}
+			}
+		}
+	}
+}
+
+p {
+	text-align: center;
+	margin: 0;
+	padding: 8px;
+	line-height: 20px;
+}
+
+.redText {
+	color: red;
+}

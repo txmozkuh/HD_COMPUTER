@@ -1,27 +1,16 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import {
-  makeStyles,
-  Menu,
-  MenuItem,
   Grid
 } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
-import { HiOutlineDesktopComputer as PcIcon, } from 'react-icons/hi';
 import { IoIosLaptop as OfficeLaptopIcon } from 'react-icons/io';
 
 import './NavCategory.scss';
 import ImgIcon from 'src/icons/ImgIcon';
 
-const useStyles = makeStyles(({
-}));
-
-const SubMenuItem = [
-
-];
-
-const NavCategory = ({ className }) => {
+const NavCategory = (props) => {
   return (
     <Grid className="nav-category" container justify="center">
       <div className="menu">
@@ -36,7 +25,7 @@ const NavCategory = ({ className }) => {
 const SubItem = [
   { title: 'Máy tính chơi game ', items: [{ name: 'PC Gaming cũ', url: '#' }, { name: 'PC Gaming mới', url: '#' }, { name: 'PC Gaming Cao Cao', url: '#' }, { name: 'PC Gaming cũ', url: '#' }] },
   { title: 'PC Gaming Theo CPU  ', items: [{ name: 'PC Gaming Pentium', url: '#' }, { name: 'PC Gaming Ryzen 7', url: '#' }, { name: 'PC Gaming Cao Cao', url: '#' }] },
-  { title: 'Máy tính chơi game ', items: [{ name: 'PC Gaming cũ', url: '#' }, { name: 'PC Gaming mới', url: '#' }, { name: 'PC Gaming Cao Cao', url: '#' }, { name: 'PC Gaming cũ', url: '#' }, { name: 'PC Gaming cũ', url: '#' },] },
+  { title: 'Máy tính chơi game ', items: [{ name: 'PC Gaming cũ', url: '#' }, { name: 'PC Gaming mới', url: '#' }, { name: 'PC Gaming Cao Cao', url: '#' }, { name: 'PC Gaming cũ', url: '#' }, { name: 'PC Gaming cũ', url: '#' }] },
   { title: 'Máy tính chơi game ', items: [{ name: 'PC Gaming cũ', url: '#' }, { name: 'PC Gaming mới', url: '#' }, { name: 'PC Gaming Cao Cao', url: '#' }] },
   { title: 'PC Gaming Theo CPU  ', items: [{ name: 'PC Gaming Pentium', url: '#' }, { name: 'PC Gaming Ryzen 7', url: '#' }, { name: 'PC Gaming Cao Cao', url: '#' }] }
 ];
@@ -60,12 +49,12 @@ const SubMenu = (props) => {
               direction="column"
               justify="flex-start"
               alignItems="flex-start"
-              key={`sub__${idx}`}
+              key={`submenu__${idx}`}
               className="sub-items"
             >
               <div className="sub-items__title">{title}</div>
               <ul className="sub-items__item">
-                {items && items.map((item) => <li><a href={item.url}>{item.name}</a></li>)}
+                {items && items.map((item, idx2) => <li key={`item-url__${idx2}`}><a href={item.url}>{item.name}</a></li>)}
               </ul>
             </Grid>
           );
@@ -75,7 +64,7 @@ const SubMenu = (props) => {
   );
 };
 
-const MenuItems = (props) => {
+const MenuItems = () => {
   return (
     <ul className="menu-items">
       <li className="menu-items__item menu-items-item">
@@ -171,7 +160,6 @@ const MenuItems = (props) => {
 };
 
 NavCategory.propTypes = {
-  className: PropTypes.string
 };
 
 export default NavCategory;

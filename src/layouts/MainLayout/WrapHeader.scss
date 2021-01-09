@@ -1,14 +1,21 @@
+@import 'src/scss/main.scss';
+
 .wrapHeader {
-	border-bottom: solid 1px #222;
-	&__main,
-	&__nav {
+	// height: 34px;
+	// background-color: $primaryColor !important;
+	&__main {
 		background: white;
 		color: black;
 		width: 100%;
 		padding: 5px;
+		// border-bottom: solid 2px #222;
+
+		display: flex;
+		flex-flow: column nowrap;
 	}
 
-	&__main {
-		border-bottom: solid 2px #222;
+	.line-break {
+		width: 100%;
+		margin: 5px;
 	}
 }

@@ -11,7 +11,9 @@ import { Search as SearchIcon, ShoppingCart as CardIcon } from 'react-feather';
 import './MainHeader.scss';
 
 const useStyles = makeStyles(() => ({
-  root: {},
+  root: {
+    width: '100%',
+  },
   iconButton: {
     padding: 10,
   },

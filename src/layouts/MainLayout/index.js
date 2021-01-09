@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
 
 const MainLayout = () => {
   const classes = useStyles();
-  const [headerHeight, setHeaderHeight] = useState(100);
+  const [headerHeight, setHeaderHeight] = useState(150);
 
   useEffect(() => {
     const height = document.getElementById('wrapHeader').clientHeight;

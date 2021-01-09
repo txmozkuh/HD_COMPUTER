@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import Footer from './Footer';
-import WrapHeader from './WrapHeader';
+import WrapHeader from './WraphHeader/WrapHeader';
 
 const useStyles = makeStyles((theme) => ({
   root: {

@@ -9,3 +9,8 @@ $hoverTextColor: rgb(255, 79, 79);
 	padding: 0;
 	list-style: none;
 }
+
+@mixin hover-text {
+	color: red;
+	cursor: pointer;
+}

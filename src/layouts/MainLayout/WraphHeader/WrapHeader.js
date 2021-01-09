@@ -8,8 +8,7 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { withStyles } from '@material-ui/styles';
 import MainHeader from './MainHeader';
-import NavHeader from './NavHeader';
-import TopBar from './TopBar';
+import TopBar from '../TopBar';
 
 import './WrapHeader.scss';
 
@@ -90,7 +89,7 @@ class WrapHeader extends Component {
     const { classes, id } = this.props;
     const { shouldShow } = this.state;
 
-    console.log('xxx560 wrap header: ', this.props);
+    // console.log('xxx560 wrap header: ', this.props);
     return (
       <AppBar
         className={clsx(classes.root, 'wrapHeader')}
@@ -103,11 +102,7 @@ class WrapHeader extends Component {
         </Toolbar>
         <Toolbar className={clsx('wrapHeader__main', this.getScrollClassName())}>
           <MainHeader />
-          <div className="line-break" />
-          <NavHeader />
         </Toolbar>
-        {/* <Toolbar className={clsx('wrapHeader__nav')}> */}
-        {/* </Toolbar> */}
       </AppBar>
     );
   }

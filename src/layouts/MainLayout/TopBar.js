@@ -9,8 +9,6 @@ import {
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React from 'react';
-import MainHeader from './MainHeader';
-import NavHeader from './NavHeader';
 
 import './TopBar.scss';
 

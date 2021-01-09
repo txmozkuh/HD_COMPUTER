@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Search as SearchIcon, ShoppingCart as CardIcon } from 'react-feather';
 import './MainHeader.scss';
+import NavCategory from './NavCategory';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -99,7 +100,6 @@ const MainHeader = ({ className, ...rest }) => {
           <Typography className="phone"> 090.12.34.567 </Typography>
         </Grid>
       </Grid>
-      <Grid />
       <Grid
         item
         xl={1}
@@ -116,6 +116,55 @@ const MainHeader = ({ className, ...rest }) => {
           Giỏ hàng
         </Button>
       </Grid>
+      <div className="line-break" />
+      <Grid
+        item
+        xl={4}
+        lg={4}
+        md={4}
+        xs={false}
+      >
+        <NavCategory />
+      </Grid>
+      <Grid
+        item
+        xl={8}
+        lg={8}
+        md={false}
+        xs={false}
+      >
+        <IntroHeader />
+      </Grid>
+
+    </Grid>
+  );
+};
+
+const IntroHeader = () => {
+  return (
+    <Grid
+      container
+      direction="row"
+      justify="space-around"
+      alignContent="center"
+      className="intro-header"
+    >
+      <a href="/chinh-sach-hang-chinh-hang.html">
+        <img src="/static/icons/new_icon_chinhhang.png" alt="" />
+        100% chính hãng
+      </a>
+      <a href="/chinh-sach-van-chuyen.html">
+        <img src="/static/icons/new_icon_vanchuyen.png" alt="" />
+        Miễn phí vận chuyển
+      </a>
+      <a href="/chinh-sach-bao-hanh.html">
+        <img src="/static/icons/new_icon_baohanh.png" alt="" />
+        Bảo hành tận nơi
+      </a>
+      <a href="/huong-dan-mua-hang-tra-gop.html">
+        <img src="/static/icons/new_icon_tragop.png" alt="" />
+        Hướng dẫn trả góp
+      </a>
     </Grid>
   );
 };

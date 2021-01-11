@@ -73,26 +73,31 @@ const SubMenu = (props) => {
 };
 
 const MenuItems = () => {
-  const [showMenu, setShowMenu] = useState(false);
-  const location = useLocation();
+  // const [showMenu, setShowMenu] = useState(false);
+  // const location = useLocation();
 
-  useLayoutEffect(() => {
-    // eslint-disable-next-line no-underscore-dangle
-    function getScrollPosition() {
-      // console.log(window.scrollY);
-      if (window.scrollY < SHOW_MENU_THRESHOLD && location.pathname === '/') { setShowMenu(true); } else setShowMenu(false);
-    }
-    window.addEventListener('scroll', getScrollPosition);
-    getScrollPosition();
+  // useLayoutEffect(() => {
+  //   // eslint-disable-next-line no-underscore-dangle
+  //   function getScrollPosition() {
+  //     // console.log(window.scrollY);
+  // if (window.scrollY < SHOW_MENU_THRESHOLD && location.pathname === '/')
+  // { setShowMenu(true); } else setShowMenu(false);
+  //   }
+  //   window.addEventListener('scroll', getScrollPosition);
+  //   getScrollPosition();
 
-    return () => window.removeEventListener('scroll', getScrollPosition);
-  }, []);
+  //   return () => window.removeEventListener('scroll', getScrollPosition);
+  // }, []);
   return (
-    <ul style={{ display: showMenu ? 'block' : '' }} className="menu-items" id="menu-items">
+    <ul
+      // style={{ display: showMenu ? 'block' : '' }}
+      className="menu-items"
+      id="menu-items"
+    >
       <li className="menu-items__item menu-items-item">
         <a className="menu-items-item__title sub-item-title">
           <span className="sub-item-title__icon">
-            <ImgIcon name="computer" size={25} />
+            <ImgIcon name="menu/computer" size={25} />
           </span>
           <span className="sub-item-title__title">
             Máy tính để bàn
@@ -118,7 +123,7 @@ const MenuItems = () => {
       <li className="menu-items__item menu-items-item">
         <a className="menu-items-item__title sub-item-title">
           <span className="sub-item-title__icon">
-            <ImgIcon name="workstation" size={25} />
+            <ImgIcon name="menu/workstation" size={25} />
           </span>
           <span className="sub-item-title__title">
             Máy chủ - máy trạm
@@ -131,7 +136,7 @@ const MenuItems = () => {
       <li className="menu-items__item menu-items-item">
         <a className="menu-items-item__title sub-item-title">
           <span className="sub-item-title__icon">
-            <ImgIcon name="linh-kien" size={25} />
+            <ImgIcon name="menu/linh-kien" size={25} />
           </span>
           <span className="sub-item-title__title">
             Linh kiện máy tính
@@ -144,7 +149,7 @@ const MenuItems = () => {
       <li className="menu-items__item menu-items-item">
         <a className="menu-items-item__title sub-item-title">
           <span className="sub-item-title__icon">
-            <ImgIcon name="monitor" size={25} />
+            <ImgIcon name="menu/monitor" size={25} />
           </span>
           <span className="sub-item-title__title">
             Màn hình máy tính
@@ -155,7 +160,7 @@ const MenuItems = () => {
       <li className="menu-items__item menu-items-item">
         <a className="menu-items-item__title sub-item-title">
           <span className="sub-item-title__icon">
-            <ImgIcon name="headphones" size={25} />
+            <ImgIcon name="menu/headphones" size={25} />
           </span>
           <span className="sub-item-title__title">
             Thiết bị, phụ kiện
@@ -166,7 +171,7 @@ const MenuItems = () => {
       <li className="menu-items__item menu-items-item">
         <a className="menu-items-item__title sub-item-title">
           <span className="sub-item-title__icon">
-            <ImgIcon name="fan" size={25} />
+            <ImgIcon name="menu/fan" size={25} />
           </span>
           <span className="sub-item-title__title">
             Tản nhiệt - Cooling
@@ -177,7 +182,7 @@ const MenuItems = () => {
       <li className="menu-items__item menu-items-item">
         <a className="menu-items-item__title sub-item-title">
           <span className="sub-item-title__icon">
-            <ImgIcon name="chair" size={25} />
+            <ImgIcon name="menu/chair" size={25} />
           </span>
           <span className="sub-item-title__title">
             Bán ghế chơi game

@@ -28,11 +28,13 @@ const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((i) => ({
 
   code: faker.random.alphaNumeric(10),
   name: faker.name.title(),
+  imageUrl: faker.image.imageUrl(),
   thumbnail: faker.image.imageUrl(),
   price: faker.random.number(),
   seenCount: faker.random.number(),
   detailText: faker.random.words(),
-  url: faker.internet.url()
+  url: faker.internet.url(),
+  qrCode: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png'
 
 }));
 

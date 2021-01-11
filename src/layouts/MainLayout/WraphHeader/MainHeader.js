@@ -8,6 +8,7 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Search as SearchIcon, ShoppingCart as CardIcon } from 'react-feather';
+import { useNavigate } from 'react-router-dom';
 import SearchArea from 'src/components/SearchArea/SearchArea';
 import './MainHeader.scss';
 import NavCategory from './NavCategory';
@@ -99,6 +100,7 @@ const EVENT_GRID_EL = {
 
 const MainHeader = (props) => {
   const classes = useStyles();
+  const navigate = useNavigate();
 
   const { className, isHidding, ...rest } = props;
   return (
@@ -118,9 +120,9 @@ const MainHeader = (props) => {
         alignItems="center"
         className={`${isHidding ? classes.hideEl : ''}`}
       >
-        <Grid>
+        <div onClick={() => navigate('/')}>
           <img alt="main-logo" src="/static/icons/logo.png" height={65} />
-        </Grid>
+        </div>
       </Grid>
       <Grid
         item

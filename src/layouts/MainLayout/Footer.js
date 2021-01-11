@@ -18,7 +18,7 @@ const Footer = ({ className, ...rest }) => {
 
   return (
     <div
-      className={clsx(classes.root, className)}
+      className={clsx(classes.root, className, 'wrap-footer')}
       {...rest}
     >
       <footer className="footer">
@@ -183,7 +183,7 @@ const Footer = ({ className, ...rest }) => {
           </Grid>
         </Grid>
       </footer>
-      <p>
+      <p className="wrap-footer__license">
         WEBSITE ĐƯỢC SỞ HỮU VÀ QUẢN LÝ BỞI NGUYỄN VĂN A
         <br />
         Giấy phép đăng ký kinh doanh số 012345678 do sở Kế Hoạch

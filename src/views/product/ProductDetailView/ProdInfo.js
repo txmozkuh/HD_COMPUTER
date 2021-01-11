@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import {
-  Container,
   Grid,
-  Hidden,
   makeStyles
 } from '@material-ui/core';
-import Page from 'src/components/Page';
 
-import Breadcrumb from 'src/components/Breadcrumb/Breadcrumb';
 import tempData from './data';
+import ProdIntro from './ProdInfoDetail/ProdIntro';
+import ProdTabs from './ProdInfoDetail/ProdTabs';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,49 +20,15 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const ProdInfo = () => {
+const ProdInfo = (props) => {
   const classes = useStyles();
-  const [data] = useState(tempData[0]);
+  const { data } = props;
 
-  console.log('xxx562 product detail: ', data);
   return (
-    <Page
-      className={classes.root}
-      title="Product Detail"
-    >
-      <Container maxWidth="lg">
-        <Grid>
-          <Breadcrumb />
-          <Grid
-            container
-            direction="row"
-            wrap="nowrap"
-            justify="center"
-            alignContent="center"
-          >
-            <Grid
-              item
-              xl={9}
-              lg={9}
-              md={9}
-              sm={12}
-              xs={12}
-            >
-              san pham
-            </Grid>
-            <Hidden smDown>
-              <Grid
-                item
-                xl={3}
-                lg={3}
-                md={3}
-                style={{ background: 'cyan' }}
-              />
-            </Hidden>
-          </Grid>
-        </Grid>
-      </Container>
-    </Page>
+    <Grid container direction="column" justify="flex-start" alignItems="flex-start">
+      <ProdIntro data={data} />
+      <ProdTabs data={data} />
+    </Grid>
   );
 };
 

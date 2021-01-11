@@ -1,0 +1,150 @@
+@import 'src/scss/main.scss';
+
+.prod-intro {
+	&__left,
+	&__right {
+		padding: 10px;
+	}
+
+	&__img {
+		@include box-shadow-1;
+		width: 100%;
+		margin-bottom: 10px;
+		img {
+			@include fit-image;
+			padding: 10px;
+			margin: auto;
+		}
+	}
+
+	&__contact {
+		@include box-shadow-1;
+		padding: 5px;
+
+		p {
+			font-weight: bold;
+		}
+	}
+
+	&__prod-name {
+		margin-top: 0;
+		margin-bottom: 5px;
+		font-size: x-large;
+		font-weight: bold;
+	}
+
+	&__two-row {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__one-line,
+	.one-line {
+		display: inline-flex;
+
+		&--red {
+			color: $redColor;
+		}
+
+		div {
+			margin: auto;
+		}
+	}
+
+	&__row {
+		margin-top: 10px;
+	}
+
+	&__row-title {
+		font-weight: bold;
+	}
+
+	.price-row {
+		margin: 10px 0 10px 0;
+		padding: 5px;
+
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+
+		&__div {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			flex: 3 1 auto;
+		}
+
+		&__vat {
+			margin-left: 5px;
+			align-self: flex-end;
+		}
+
+		&__price {
+			@include price;
+		}
+
+		&__qr-code {
+			flex: 1 1 auto;
+			margin: auto;
+
+			img {
+				@include fit-image;
+				max-width: 100px;
+				float: right;
+			}
+		}
+	}
+
+	.advertising {
+		@include box-shadow-1;
+		padding: 5px;
+		margin: 5px;
+
+		&__title {
+			color: $redColor;
+		}
+
+		&__content {
+			color: lightskyblue;
+		}
+	}
+
+	.prod-btn-row {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-evenly;
+		align-items: center;
+
+		&__btn {
+			margin: 5px;
+
+			&--buy {
+				background-color: $yelloColor;
+			}
+
+			&--add-to-cart {
+				background-color: $redColor;
+			}
+
+			&--installment-buy {
+				background-color: lightslategray;
+			}
+		}
+	}
+
+	.share-icons {
+		@include flex-display;
+		margin-bottom: 5px;
+
+		svg:hover {
+			@include ani-hover;
+		}
+	}
+
+	&--bottom-line {
+		@include custom-border-bottom-1;
+	}
+}

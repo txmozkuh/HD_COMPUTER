@@ -2,6 +2,10 @@ $primaryColor: #17324f;
 
 $hoverTextColor: rgb(255, 79, 79);
 
+$redColor: rgb(255, 79, 79);
+
+$yelloColor: #d7a00b;
+
 // Mixin
 
 @mixin reset-list {
@@ -12,5 +16,40 @@ $hoverTextColor: rgb(255, 79, 79);
 
 @mixin hover-text {
 	color: red;
+	cursor: pointer;
+}
+
+@mixin fit-image {
+	max-height: 100%;
+	height: auto;
+	width: 100%;
+}
+
+@mixin box-shadow-1 {
+	box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+		rgba(17, 17, 26, 0.1) 0px 0px 8px;
+}
+
+@mixin custom-border-bottom-1 {
+	border-bottom: 1px solid #5d5d5d;
+}
+
+@mixin price {
+	font-weight: bold;
+	font-size: xx-large;
+	font-style: italic;
+	text-shadow: -1px 0 wheat, 0 2px black, 2px 0 white, 0 -1px white;
+}
+
+@mixin flex-display {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-items: center;
+}
+
+@mixin ani-hover {
+	transition: 0.3s ease-in-out;
+	transform: scale(1.03);
 	cursor: pointer;
 }

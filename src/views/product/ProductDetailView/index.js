@@ -33,7 +33,7 @@ const ProductDetail = () => {
       className={classes.root}
       title="Product Detail"
     >
-      <Container maxWidth="lg">
+      <Container maxWidth={false}>
         <Grid>
           <Breadcrumb />
           <Grid
@@ -45,21 +45,21 @@ const ProductDetail = () => {
           >
             <Grid
               item
-              xl={9}
-              lg={9}
-              md={9}
+              xl={10}
+              lg={10}
+              md={10}
               sm={12}
               xs={12}
             >
-              <ProdInfo />
+              <ProdInfo data={data} />
             </Grid>
             <Hidden smDown>
               <Grid
                 item
-                xl={3}
-                lg={3}
-                md={3}
-                style={{ background: 'cyan' }}
+                xl={2}
+                lg={2}
+                md={2}
+                style={{ background: 'lightyellow' }}
               />
             </Hidden>
           </Grid>

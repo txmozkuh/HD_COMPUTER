@@ -60,7 +60,7 @@ class WrapHeader extends Component {
       return;
     }
 
-    console.log('xxx 563 scroll: ', currLastScroll, this.lastScroll);
+    // console.log('xxx 563 scroll: ', currLastScroll, this.lastScroll);
     // let isShouldShow = this.lastScroll !== null ? currLastScroll < this.lastScroll : null;
     let isShouldShow = true;
 

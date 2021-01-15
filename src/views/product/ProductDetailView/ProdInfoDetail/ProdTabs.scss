@@ -1,0 +1,30 @@
+@import 'src/scss/main.scss';
+
+.prod-tabs {
+	.appbar-tabs {
+		background-color: whitesmoke;
+
+		.MuiTabs-flexContainer {
+			// justify-content: space-evenly;
+		}
+
+		&__item {
+			min-width: 120px;
+			border-right: 1px gray solid;
+			padding: 0 10px;
+
+			text-transform: initial;
+			text-align: left;
+
+			&:last-child {
+				border: none;
+			}
+		}
+	}
+
+	.tabcontent {
+		&__title {
+			@include custom-border-bottom-1;
+		}
+	}
+}

@@ -187,6 +187,7 @@ const ProdIntro = (props) => {
 
         <Grid
           className="prod-intro__row prod-btn-row"
+          container
           direction="row"
           justify="space-around"
           alignItems="center"

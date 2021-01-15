@@ -34,7 +34,7 @@ const routes = () => [
       { path: '404', element: <NotFoundView /> },
       { path: '/', element: <HomeView /> },
       { path: '/:productUrl', element: <ProductDetail /> },
-      { path: '*', element: <Navigate to="/404" /> }
+      // { path: '*', element: <Navigate to="/404" /> }
     ]
   }
 ];

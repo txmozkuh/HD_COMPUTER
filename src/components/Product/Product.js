@@ -8,30 +8,38 @@ import { GiCheckMark as CheckIcon } from 'react-icons/gi';
 import { IoMdCart as CartIcon } from 'react-icons/io';
 import './Product.scss';
 import { useNavigate } from 'react-router-dom';
+import { FAKE_PROD } from 'src/utils/constants';
 
 const useStyles = makeStyles((theme) => ({
 }));
 
-const Product = () => {
+const Product = (props) => {
   const classes = useStyles();
   const navigate = useNavigate();
 
-  const productCode = 'PWTS0001';
+  let { data } = props;
+  if (!data) {
+    data = FAKE_PROD;
+  }
+
+  const {
+    id, code, price, imageUrl, name, url
+  } = data;
   return (
 
-    <Card className="product" raised onClick={() => navigate('product-url')}>
+    <Card id={id} className="product" raised onClick={() => navigate(`/${url}`)}>
       <div className="product__code">
         Mã SP:
         {' '}
-        {productCode}
+        {code}
       </div>
       <div className="product__img productImg">
-        <img className="productImg__img" src="https://www.maytinhxachtayus.com/wp-content/uploads/2020/02/1.png" alt="product" />
+        <img className="productImg__img" src={imageUrl} alt="a latop" />
         <div className="productImg__price">
-          20.000
+          {price}
         </div>
       </div>
-      <div className="product__info">PC Đồ Họa AP Ryzen 5 -5600X Ram 8Gb VGA GTX 1650 4Gb Case Trio</div>
+      <div className="product__info">{name}</div>
       <div className="product__status productStatus">
         <div className="productStatus__status">
           <CheckIcon />

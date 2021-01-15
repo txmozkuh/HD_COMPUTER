@@ -8,8 +8,9 @@ import {
 import Page from 'src/components/Page';
 
 import Breadcrumb from 'src/components/Breadcrumb/Breadcrumb';
-import tempData from './data';
+import { FAKE_PROD } from 'src/utils/constants';
 import ProdInfo from './ProdInfo';
+import ProdFilter from './ProdFilter';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,9 +26,8 @@ const useStyles = makeStyles((theme) => ({
 
 const ProductDetail = () => {
   const classes = useStyles();
-  const [data] = useState(tempData[0]);
+  const [data] = useState(FAKE_PROD);
 
-  console.log('xxx562 product detail: ', data);
   return (
     <Page
       className={classes.root}
@@ -59,8 +59,9 @@ const ProductDetail = () => {
                 xl={2}
                 lg={2}
                 md={2}
-                style={{ background: 'lightyellow' }}
-              />
+              >
+                <ProdFilter />
+              </Grid>
             </Hidden>
           </Grid>
         </Grid>

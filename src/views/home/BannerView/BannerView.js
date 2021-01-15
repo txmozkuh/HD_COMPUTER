@@ -17,6 +17,9 @@ import { Carousel } from 'react-responsive-carousel';
 //   },
 // }));
 
+const banners = [1, 2, 3, 4, 5, 6, 7].map((i) => `/static/images/products/${i}.png`);
+const rightBannerImg = '/static/images/collections.gif';
+
 const Home = () => {
   const youtubeId = 'SFvVDYvoSVE';
   return (
@@ -52,30 +55,15 @@ const Home = () => {
             ))
         } */}
 
-          <div>
-            <img src={require('./img/1.jpg')} alt="1" />
-            <p className="legend">Latop 1</p>
-          </div>
-          <div>
-            <img src={require('./img/2.jpg')} alt="2" />
-            <p className="legend">Legend 2</p>
-          </div>
-          <div>
-            <img src={require('./img/3.jpg')} alt="3" />
-            <p className="legend">Legend 3</p>
-          </div>
-          <div>
-            <img src={require('./img/4.png')} alt="4" />
-            <p className="legend">Legend 4</p>
-          </div>
-          <div>
-            <img src={require('./img/5.jpg')} alt="51" />
-            <p className="legend">Legend 5</p>
-          </div>
-          <div>
-            <img src={require('./img/6.jpg')} alt="6" />
-            <p className="legend">Legend 6</p>
-          </div>
+          {banners && banners.map((img, idx) => (
+            <div key={`img-slide_${String(idx)}`}>
+              <img src={img} alt={img} />
+              <p className="legend">
+                Latop
+                {idx}
+              </p>
+            </div>
+          ))}
         </Carousel>
       </Grid>
       <Grid
@@ -96,7 +84,7 @@ const Home = () => {
           />
         </div>
         <div className="rightBanner__img">
-          <img src={require('./img/collections.gif')} alt="Bộ sưu tập" />
+          <img src={rightBannerImg} alt="Bộ sưu tập" />
         </div>
       </Grid>
 

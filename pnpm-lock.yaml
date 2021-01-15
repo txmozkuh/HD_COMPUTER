@@ -30,6 +30,7 @@ dependencies:
   react-responsive-carousel: 3.2.11
   react-router-dom: 6.0.0-beta.0_3a8d3a2ec439ed05f71d417ec8c7ed2c
   react-scripts: 3.4.4_node-sass@4.14.1
+  react-spring: 8.0.27_react-dom@16.14.0+react@16.14.0
   redux: 4.0.5
   redux-logger: 3.0.6
   redux-thunk: 2.3.0
@@ -10777,6 +10778,18 @@ packages:
       react: ^16.3.0 || ^17.0.0
     resolution:
       integrity: sha512-2FoTQzRNTncBVtnzxFOk2mCpcfxQpenBMbk5kSVBg5UcPqV9fRbgY2zhb7GTWWOlpFmAxhClBDlIq8Rsubz1yQ==
+  /react-spring/8.0.27_react-dom@16.14.0+react@16.14.0:
+    dependencies:
+      '@babel/runtime': 7.12.5
+      prop-types: 15.7.2
+      react: 16.14.0
+      react-dom: 16.14.0_react@16.14.0
+    dev: false
+    peerDependencies:
+      react: '>= 16.8.0'
+      react-dom: '>= 16.8.0'
+    resolution:
+      integrity: sha512-nDpWBe3ZVezukNRandTeLSPcwwTMjNVu1IDq9qA/AMiUqHuRN4BeSWvKr3eIxxg1vtiYiOLy4FqdfCP5IoP77g==
   /react-transition-group/4.4.1_react-dom@16.14.0+react@16.14.0:
     dependencies:
       '@babel/runtime': 7.12.5
@@ -13263,6 +13276,7 @@ specifiers:
   react-responsive-carousel: ^3.2.11
   react-router-dom: ^6.0.0-beta.0
   react-scripts: ^3.4.4
+  react-spring: ^8.0.27
   redux: ^4.0.5
   redux-logger: ^3.0.6
   redux-thunk: ^2.3.0

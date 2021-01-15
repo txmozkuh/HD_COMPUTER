@@ -1,0 +1,33 @@
+@import 'src/scss/main.scss';
+
+.filter-cb {
+	margin-bottom: 10px;
+	&__title {
+		background-image: linear-gradient(rgb(87, 83, 66), black);
+		text-transform: uppercase;
+		color: white;
+		width: 100%;
+
+		@include box-shadow-1;
+		border-radius: 5px;
+		padding: 5px;
+	}
+	//filter-tree-view
+	.filter-tv {
+		width: 100%;
+		font-size: 14px;
+		padding: 5px;
+
+		.MuiTreeItem-label {
+			font-weight: bold;
+			font-size: 14px;
+		}
+		.cb-form {
+			width: 100%;
+
+			.MuiFormControlLabel-label {
+				font-size: 14px;
+			}
+		}
+	}
+}

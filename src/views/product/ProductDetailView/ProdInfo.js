@@ -4,7 +4,6 @@ import {
   makeStyles
 } from '@material-ui/core';
 
-import tempData from './data';
 import ProdIntro from './ProdInfoDetail/ProdIntro';
 import ProdTabs from './ProdInfoDetail/ProdTabs';
 

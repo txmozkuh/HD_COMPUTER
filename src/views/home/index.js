@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  Box,
   Container,
   Grid,
   makeStyles
@@ -35,7 +34,6 @@ const Home = () => {
           <HotAreaView />
           <ProductCategoryView />
           <ProductCategoryView />
-
         </Grid>
       </Container>
     </Page>
